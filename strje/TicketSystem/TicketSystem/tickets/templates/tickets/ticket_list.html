@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tickets</title>
+</head>
+<body>
+    <h1>Lista de Tickets</h1>
+    <a href="{% url 'add_ticket' %}">Añadir Nuevo Ticket</a>
+    <ul>
+        {% for ticket in tickets %}
+            <li>ID: {{ ticket.id }} - {{ ticket.customer_name }} - Prioridad: {{ ticket.priority }} - {{ ticket.timestamp }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'current_ticket' %}">Ver Ticket Actual</a>
+</body>
+</html>

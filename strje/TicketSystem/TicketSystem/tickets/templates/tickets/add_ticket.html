@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir Ticket</title>
+</head>
+<body>
+    <h1>Añadir Ticket</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Nombre del Cliente:</label>
+        <input type="text" name="customer_name" required><br>
+        <label>Descripción del Problema:</label>
+        <textarea name="issue_description" required></textarea><br>
+        <label>Prioridad:</label>
+        <input type="number" name="priority" min="0" max="10" required><br>
+        <button type="submit">Añadir Ticket</button>
+    </form>
+    <a href="{% url 'ticket_list' %}">Volver a la Lista</a>
+</body>
+</html>

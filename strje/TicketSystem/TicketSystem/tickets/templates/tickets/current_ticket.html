@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket Actual</title>
+</head>
+<body>
+    <h1>Ticket Actual</h1>
+    {% if ticket %}
+        <p>ID: {{ ticket.id }}</p>
+        <p>Cliente: {{ ticket.customer_name }}</p>
+        <p>Descripción: {{ ticket.issue_description }}</p>
+        <p>Prioridad: {{ ticket.priority }}</p>
+        <form action="{% url 'attend_ticket' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Atender y Remover Ticket</button>
+        </form>
+    {% else %}
+        <p>No hay tickets en la cola.</p>
+    {% endif %}
+    <a href="{% url 'ticket_list' %}">Volver a la Lista</a>
+</body>
+</html>
